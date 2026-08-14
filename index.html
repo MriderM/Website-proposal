@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Community Book Nook - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Verdana:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #FDF5E6;
+            color: #8B4513;
+            line-height: 1.7;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+        }
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #2E8B57;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        header {
+            background: #8B4513;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: #FDF5E6;
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+        .logo span { color: #A8D08D; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #FDF5E6;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #A8D08D;
+            color: #A8D08D;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: #FDF5E6;
+            padding: 80px 0 70px;
+            text-align: center;
+            border-bottom: 6px solid #2E8B57;
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 0.5rem; }
+        .hero h1 span { color: #A8D08D; }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0.8rem auto 1.8rem;
+            opacity: 0.9;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-block;
+            background: #2E8B57;
+            color: #FDF5E6;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #FDF5E6;
+            color: #FDF5E6;
+            box-shadow: none;
+        }
+        .btn-secondary:hover {
+            background: #FDF5E6;
+            color: #8B4513;
+        }
+
+        /* ---------- FEATURES ---------- */
+        section { padding: 60px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: #FDF5E6;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: transform 0.25s;
+            border: 1px solid #d4c5b0;
+        }
+        .feature-card:hover { transform: translateY(-6px); }
+        .feature-icon { font-size: 2.8rem; margin-bottom: 0.8rem; }
+        .feature-card h3 { font-weight: 600; font-size: 1.2rem; }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #8B4513;
+            color: #ced6dd;
+            padding: 28px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        footer a { color: #A8D08D; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 12px; }
+            .nav-links { justify-content: center; gap: 14px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 50px 0; }
+            .hero h1 { font-size: 1.8rem; }
+            .btn { padding: 12px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+    <div class="container nav-container">
+        <div class="logo">The Community <span>Book Nook</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs & Events</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<div class="hero">
+    <div class="container">
+        <h1>Welcome to the <span>Book Nook</span></h1>
+        <p>Fostering a lifelong love of reading and learning by providing free and equitable access to books for all members of our community.</p>
+        <a href="programs.html" class="btn">Explore Programs</a>
+        <a href="get-involved.html" class="btn btn-secondary" style="margin-left:12px;">Get Involved</a>
+    </div>
+</div>
+
+<!-- ==================== HOME CONTENT ==================== -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Our Community Hub</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Free Library</h3>
+                <p>Access thousands of books for all ages, completely free. Borrow, read, and return at your own pace.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Story Time</h3>
+                <p>Weekly storytelling sessions for children that spark imagination and a love for reading.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Community Events</h3>
+                <p>Book clubs, writing workshops, and community gatherings for readers of all ages.</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:45px;">
+            <a href="programs.html" class="btn">View Programs & Events</a>
+            <a href="contact.html" class="btn" style="background:#8B4513; color:#FDF5E6; margin-left:12px;">Find Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        <span>&copy; 2026 The Community Book Nook. All rights reserved.</span>
+        <span>📚 Reading changes lives.</span>
+    </div>
+</footer>
+
+</body>
+</html>

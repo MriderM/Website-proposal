@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Botanical Brews - Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #FDF5E6;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #A8D08D;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        header {
+            background: #2C3E50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: #FDF5E6;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: #A8D08D; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #FDF5E6;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #A8D08D;
+            color: #A8D08D;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-block;
+            background: #F0E68C;
+            color: #2C3E50;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* ---------- CONTACT CONTENT ---------- */
+        section { padding: 60px 0; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        .contact-info .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e8ddd0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .contact-info .info-item .icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .contact-info .info-item .text strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .contact-info .info-item .text p {
+            margin-top: 2px;
+            font-size: 0.95rem;
+        }
+
+        /* Map Placeholder */
+        .map-placeholder {
+            background: #d5d0c7;
+            border-radius: 20px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2C3E50;
+            font-weight: 600;
+            margin-top: 16px;
+            border: 1px dashed #2C3E50;
+            width: 100%;
+        }
+
+        /* Two Locations */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .location-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #e8ddd0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .location-card h4 {
+            color: #A8D08D;
+            margin-bottom: 6px;
+        }
+        .location-card p {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #fff;
+            padding: 35px 40px;
+            border-radius: 24px;
+            border: 1px solid #e8ddd0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            background: #fcf9f5;
+            transition: border-color 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #A8D08D;
+            box-shadow: 0 0 0 3px rgba(168, 208, 141, 0.2);
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 20px;
+            background: #2C3E50;
+            color: #FDF5E6;
+        }
+        .contact-form .btn:hover {
+            background: #1e2d3d;
+        }
+        #contactFeedback {
+            margin-top: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #2C3E50;
+            color: #ced6dd;
+            padding: 28px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        footer a { color: #A8D08D; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 12px; }
+            .nav-links { justify-content: center; gap: 14px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .location-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 25px 20px; }
+        }
+        @media (max-width: 480px) {
+            .contact-info .info-item { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+    <div class="container nav-container">
+        <div class="logo">Botanical <span>Brews</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Programs & Events</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- ==================== CONTACT CONTENT ==================== -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <p style="text-align:center; max-width:600px; margin:0 auto 2.5rem;">We'd love to hear from you! Visit us at one of our locations, or drop us a message using the form below.</p>
+
+        <div class="contact-grid">
+            <!-- LEFT: Contact Info & Locations -->
+            <div class="contact-info">
+                <h3>📍 Our Locations</h3>
+                <p style="margin-bottom: 16px;">We have two locations to serve you better.</p>
+
+                <!-- Two Locations as required -->
+                <div class="location-grid">
+                    <div class="location-card">
+                        <h4>🏠 Main Café</h4>
+                        <p>42 Green Lane</p>
+                        <p>Cape Town, 8001</p>
+                        <p style="font-size:0.85rem; color:#666;">Mon–Fri: 7:00–18:00</p>
+                        <p style="font-size:0.85rem; color:#666;">Sat: 8:00–16:00</p>
+                    </div>
+                    <div class="location-card">
+                        <h4>🏪 Pop-up @ The Market</h4>
+                        <p>12 Harbour Street</p>
+                        <p>Cape Town, 8001</p>
+                        <p style="font-size:0.85rem; color:#666;">Sat–Sun: 9:00–15:00</p>
+                        <p style="font-size:0.85rem; color:#666;">(Weekends only)</p>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="map-placeholder">
+                    🗺️ Interactive Map: 42 Green Lane, Cape Town
+                </div>
+
+                <h3 style="margin-top: 30px;">📞 Get in Touch</h3>
+
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <div class="text">
+                        <strong>Phone</strong>
+                        <p>+27 82 123 4567</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">✉️</span>
+                    <div class="text">
+                        <strong>Email</strong>
+                        <p>hello@botanicalbrews.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon">🕒</span>
+                    <div class="text">
+                        <strong>Operating Hours</strong>
+                        <p>Mon–Fri: 7:00 – 18:00</p>
+                        <p>Sat: 8:00 – 16:00</p>
+                        <p>Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Contact Form -->
+            <div class="contact-form">
+                <h3 style="margin-top:0; margin-bottom:6px;">Send a Message</h3>
+                <p style="font-size:0.95rem; opacity:0.8; margin-bottom:10px;">We'll get back to you within 24 hours.</p>
+                <form id="contactForm">
+                    <label for="contactName">Your Full Name *</label>
+                    <input type="text" id="contactName" placeholder="e.g. Sarah Mbeki" required>
+
+                    <label for="contactEmail">Email Address *</label>
+                    <input type="email" id="contactEmail" placeholder="sarah@example.com" required>
+
+                    <label for="contactSubject">Subject</label>
+                    <input type="text" id="contactSubject" placeholder="e.g. Event Enquiry">
+
+                    <label for="contactMsg">Message *</label>
+                    <textarea id="contactMsg" placeholder="Tell us how we can help you..." required></textarea>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div id="contactFeedback"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        <span>&copy; 2026 Botanical Brews. All rights reserved.</span>
+        <span>🌱 Brewed with purpose.</span>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    (function() {
+        'use strict';
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const feedback = document.getElementById('contactFeedback');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const msg = document.getElementById('contactMsg').value.trim();
+
+            // Basic Validation
+            if (!name || !email || !msg) {
+                feedback.style.color = '#b33939';
+                feedback.textContent = '⚠️ Please fill in all required fields.';
+                return;
+            }
+
+            if (!email.includes('@') || !email.includes('.')) {
+                feedback.style.color = '#b33939';
+                feedback.textContent = '⚠️ Please enter a valid email address.';
+                return;
+            }
+
+            // Success
+            feedback.style.color = '#2C3E50';
+            feedback.innerHTML = '✅ <strong>Thank you, ' + name + '!</strong> Your message has been sent. We\'ll reply soon.';
+            contactForm.reset();
+
+            // Auto-clear after 6 seconds
+            setTimeout(function() {
+                feedback.innerHTML = '';
+            }, 6000);
+        });
+
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Community Book Nook - Programs & Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Verdana:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #FDF5E6;
+            color: #8B4513;
+            line-height: 1.7;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+        }
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #2E8B57;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        header {
+            background: #8B4513;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: #FDF5E6;
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+        .logo span { color: #A8D08D; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #FDF5E6;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #A8D08D;
+            color: #A8D08D;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-block;
+            background: #2E8B57;
+            color: #FDF5E6;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .btn-secondary {
+            background: #8B4513;
+            color: #FDF5E6;
+        }
+        .btn-secondary:hover {
+            background: #6b3410;
+        }
+
+        /* ---------- PROGRAMS ---------- */
+        section { padding: 60px 0; }
+
+        .program-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 1px solid #d4c5b0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .program-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+        }
+        .program-card .icon {
+            font-size: 3.5rem;
+            flex: 0 0 70px;
+            text-align: center;
+        }
+        .program-card .info {
+            flex: 1;
+            min-width: 200px;
+        }
+        .program-card .info h3 {
+            margin-bottom: 4px;
+            font-size: 1.4rem;
+        }
+        .program-card .info .date {
+            font-weight: 600;
+            color: #2E8B57;
+            font-size: 0.9rem;
+            display: inline-block;
+            background: #e8f5e9;
+            padding: 2px 14px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+        .program-card .info p {
+            margin: 8px 0 14px;
+            opacity: 0.9;
+        }
+        .badge {
+            background: #2E8B57;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #8B4513;
+            color: #ced6dd;
+            padding: 28px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        footer a { color: #A8D08D; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 12px; }
+            .nav-links { justify-content: center; gap: 14px; }
+            .program-card { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .program-card .icon { flex: 0 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+    <div class="container nav-container">
+        <div class="logo">The Community <span>Book Nook</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html" class="active">Programs & Events</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- ==================== PROGRAMS CONTENT ==================== -->
+<section>
+    <div class="container">
+        <h2 class="section-title">Programs & Events</h2>
+        <p style="text-align:center; max-width:650px; margin:0 auto 2.5rem;">
+            From story time for little ones to book clubs for adults — there's always something happening at the Book Nook.
+        </p>
+
+        <!-- Program 1 -->
+        <div class="program-card">
+            <div class="icon">📖</div>
+            <div class="info">
+                <h3>Story Time for Kids <span class="badge">Weekly</span></h3>
+                <div class="date">📅 Every Wednesday • 10:30 – 11:30</div>
+                <p>Join us for interactive storytelling sessions designed for children aged 3–7. Each week features a new book, songs, and craft activities. A great way to spark a love for reading!</p>
+                <a href="get-involved.html" class="btn btn-secondary" style="padding:10px 28px; font-size:0.9rem;">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="program-card">
+            <div class="icon">📚</div>
+            <div class="info">
+                <h3>Adult Book Club <span class="badge">Monthly</span></h3>
+                <div class="date">📅 First Thursday of each month • 18:30 – 20:00</div>
+                <p>This month we're reading <em>"The Promise"</em> by Damon Galgut. Join us for a lively discussion, tea, and good company. New members always welcome!</p>
+                <a href="get-involved.html" class="btn btn-secondary" style="padding:10px 28px; font-size:0.9rem;">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="program-card">
+            <div class="icon">✍️</div>
+            <div class="info">
+                <h3>Teen Writers' Workshop <span class="badge">New</span></h3>
+                <div class="date">📅 Saturday, 12 September 2026 • 14:00 – 16:00</div>
+                <p>Calling all young writers aged 13–18! Join us for a creative writing workshop led by local author Zanele Mthembu. Learn storytelling techniques and share your work in a supportive environment.</p>
+                <a href="get-involved.html" class="btn btn-secondary" style="padding:10px 28px; font-size:0.9rem;">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Program 4 -->
+        <div class="program-card">
+            <div class="icon">🎨</div>
+            <div class="info">
+                <h3>Book Art & Craft Day <span class="badge">Family</span></h3>
+                <div class="date">📅 Saturday, 19 September 2026 • 11:00 – 14:00</div>
+                <p>A fun-filled day for the whole family! Create bookmarks, decorate book covers, and make your own mini storybook. All materials provided. Perfect for children and adults alike.</p>
+                <a href="get-involved.html" class="btn btn-secondary" style="padding:10px 28px; font-size:0.9rem;">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Program 5 -->
+        <div class="program-card">
+            <div class="icon">🌍</div>
+            <div class="info">
+                <h3>Community Reading Challenge <span class="badge">Annual</span></h3>
+                <div class="date">📅 Starts 1 October 2026 • All month</div>
+                <p>Join our annual reading challenge! Read 5 books in October and share your reviews. Prizes for the most creative reviews and most books read. Let's read together!</p>
+                <a href="get-involved.html" class="btn btn-secondary" style="padding:10px 28px; font-size:0.9rem;">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div style="text-align:center; margin-top:40px; padding:30px 20px; background:#fff; border-radius:24px; border:1px solid #d4c5b0;">
+            <h3 style="margin-bottom:8px;">Have an idea for a program?</h3>
+            <p style="max-width:500px; margin:0 auto 18px;">We're always looking for new ways to serve our community. Share your ideas with us!</p>
+            <a href="contact.html" class="btn">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        <span>&copy; 2026 The Community Book Nook. All rights reserved.</span>
+        <span>📚 Reading changes lives.</span>
+    </div>
+</footer>
+
+</body>
+</html>

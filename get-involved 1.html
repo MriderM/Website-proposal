@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Community Book Nook - Get Involved</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Verdana:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #FDF5E6;
+            color: #8B4513;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 2.8rem;
+        }
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #2E8B57;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ---------- HEADER / NAV ---------- */
+        header {
+            background: #8B4513;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: #FDF5E6;
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+        .logo span {
+            color: #A8D08D;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #FDF5E6;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #A8D08D;
+            color: #A8D08D;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-block;
+            background: #2E8B57;
+            color: #FDF5E6;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        .btn-secondary {
+            background: #8B4513;
+            color: #FDF5E6;
+        }
+        .btn-secondary:hover {
+            background: #6b3410;
+        }
+
+        /* ---------- GET INVOLVED CONTENT ---------- */
+        section {
+            padding: 60px 0;
+        }
+
+        /* --- Ways to Help --- */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        .help-card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #d4c5b0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s;
+        }
+        .help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        .help-card .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .help-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .help-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* --- Enquiry Form --- */
+        .enquiry-form {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 45px 50px;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #d4c5b0;
+        }
+        .enquiry-form h3 {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .enquiry-form .subtitle {
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .enquiry-form label {
+            display: block;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .enquiry-form label .required {
+            color: #b33939;
+        }
+
+        .enquiry-form input,
+        .enquiry-form select,
+        .enquiry-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Verdana', sans-serif;
+            font-size: 1rem;
+            background: #fcf9f5;
+            transition: border-color 0.2s;
+        }
+        .enquiry-form input:focus,
+        .enquiry-form select:focus,
+        .enquiry-form textarea:focus {
+            outline: none;
+            border-color: #2E8B57;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+        }
+        .enquiry-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .enquiry-form .btn {
+            width: 100%;
+            margin-top: 25px;
+            background: #8B4513;
+            color: #FDF5E6;
+            padding: 16px;
+            font-size: 1.05rem;
+        }
+        .enquiry-form .btn:hover {
+            background: #6b3410;
+        }
+
+        /* --- Form Feedback --- */
+        #formFeedback {
+            margin-top: 18px;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px;
+            border-radius: 10px;
+        }
+        #formFeedback.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        #formFeedback.error {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #8B4513;
+            color: #ced6dd;
+            padding: 28px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        footer a {
+            color: #A8D08D;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 14px;
+            }
+            .enquiry-form {
+                padding: 25px 20px;
+            }
+            .help-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .help-grid {
+                grid-template-columns: 1fr;
+            }
+            .enquiry-form {
+                padding: 20px 16px;
+            }
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">The Community <span>Book Nook</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs & Events</a></li>
+                <li><a href="get-involved.html" class="active">Get Involved</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ==================== GET INVOLVED CONTENT ==================== -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Get Involved</h2>
+            <p style="text-align:center; max-width:650px; margin:0 auto 2.5rem;">
+                The Community Book Nook thrives because of people like you. 
+                Here are some ways you can be part of our story.
+            </p>
+
+            <!-- Ways to Help -->
+            <div class="help-grid">
+                <div class="help-card">
+                    <span class="icon">🤝</span>
+                    <h4>Volunteer</h4>
+                    <p>Help with story time, shelving books, or running events. Gain experience and meet wonderful people.</p>
+                </div>
+                <div class="help-card">
+                    <span class="icon">💰</span>
+                    <h4>Become a Sponsor</h4>
+                    <p>Support our programs and help us buy new books. We offer sponsorship packages for businesses and individuals.</p>
+                </div>
+                <div class="help-card">
+                    <span class="icon">📚</span>
+                    <h4>Donate Books</h4>
+                    <p>We welcome gently used books for all ages. Your donations help keep our shelves full and our readers happy.</p>
+                </div>
+                <div class="help-card">
+                    <span class="icon">🎤</span>
+                    <h4>Host a Workshop</h4>
+                    <p>Have a skill to share? We'd love to host your workshop, reading, or community event at the Book Nook.</p>
+                </div>
+            </div>
+
+            <!-- Enquiry Form -->
+            <div class="enquiry-form">
+                <h3>📬 Send Us an Enquiry</h3>
+                <p class="subtitle">Fill in the form below and we'll get back to you within 48 hours.</p>
+
+                <form id="enquiryForm" novalidate>
+
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" placeholder="e.g. Nomusa Dlamini" required>
+
+                    <label for="emailAddress">Email Address <span class="required">*</span></label>
+                    <input type="email" id="emailAddress" placeholder="nomusa@example.com" required>
+
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" placeholder="+27 82 123 4567">
+
+                    <label for="interestType">I'm interested in... <span class="required">*</span></label>
+                    <select id="interestType" required>
+                        <option value="">— Please select —</option>
+                        <option value="volunteer">Volunteering</option>
+                        <option value="sponsor">Becoming a Sponsor</option>
+                        <option value="donate">Donating Books</option>
+                        <option value="host">Hosting a Workshop</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="messageText">Your Message <span class="required">*</span></label>
+                    <textarea id="messageText" placeholder="Tell us more about how you'd like to get involved..." required></textarea>
+
+                    <button type="submit" class="btn">Send Enquiry</button>
+
+                    <div id="formFeedback"></div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 The Community Book Nook. All rights reserved.</span>
+            <span>📚 Reading changes lives.</span>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        (function() {
+            'use strict';
+
+            const form = document.getElementById('enquiryForm');
+            const feedback = document.getElementById('formFeedback');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('emailAddress').value.trim();
+                const interest = document.getElementById('interestType').value;
+                const message = document.getElementById('messageText').value.trim();
+
+                // Clear previous feedback
+                feedback.className = '';
+                feedback.textContent = '';
+
+                // --- VALIDATION ---
+
+                // Check required fields
+                if (!name || !email || interest === '' || !message) {
+                    feedback.className = 'error';
+                    feedback.textContent = '⚠️ Please fill in all required fields (marked with *).';
+                    return;
+                }
+
+                // Email validation
+                if (!email.includes('@') || !email.includes('.')) {
+                    feedback.className = 'error';
+                    feedback.textContent = '⚠️ Please enter a valid email address (e.g. name@domain.com).';
+                    return;
+                }
+
+                // Name validation - at least 2 characters
+                if (name.length < 2) {
+                    feedback.className = 'error';
+                    feedback.textContent = '⚠️ Please enter your full name (at least 2 characters).';
+                    return;
+                }
+
+                // Message validation - at least 10 characters
+                if (message.length < 10) {
+                    feedback.className = 'error';
+                    feedback.textContent = '⚠️ Please provide a more detailed message (at least 10 characters).';
+                    return;
+                }
+
+                // --- SUCCESS ---
+                feedback.className = 'success';
+
+                // Get the label for the selected interest
+                const interestLabels = {
+                    'volunteer': 'Volunteering',
+                    'sponsor': 'Becoming a Sponsor',
+                    'donate': 'Donating Books',
+                    'host': 'Hosting a Workshop',
+                    'other': 'Other'
+                };
+                const interestDisplay = interestLabels[interest] || interest;
+
+                feedback.innerHTML = '✅ <strong>Thank you, ' + name + '!</strong> Your enquiry about <strong>"' + interestDisplay + '"</strong> has been sent. We\'ll be in touch within 48 hours.';
+
+                // Reset form
+                form.reset();
+
+                // Auto-clear feedback after 8 seconds
+                setTimeout(function() {
+                    feedback.className = '';
+                    feedback.textContent = '';
+                }, 8000);
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
